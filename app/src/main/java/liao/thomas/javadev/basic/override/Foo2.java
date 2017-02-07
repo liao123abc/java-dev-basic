@@ -1,6 +1,7 @@
 package liao.thomas.javadev.basic.override;
 
-import liao.thomas.androidsnacks.javabasic.accessing.Foo;
+
+import liao.thomas.javadev.basic.accessing.Foo;
 
 /**
  * Created by ThomasLiao on 2016/12/24.
@@ -8,7 +9,7 @@ import liao.thomas.androidsnacks.javabasic.accessing.Foo;
  * Foo中有一个protected方法test2(), 我可以通过新建一个类集成Foo，然后做事情哦
  */
 
-public class Foo2 extends Foo{
+public class Foo2 extends Foo {
 
     /**
      * 嘿嘿，我可以从父类集成它的protected方法

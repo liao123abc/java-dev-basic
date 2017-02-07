@@ -1,6 +1,6 @@
 package liao.thomas.javadev.basic.override;
 
-import liao.thomas.androidsnacks.javabasic.accessing.Foo;
+import liao.thomas.javadev.basic.accessing.Foo;
 
 /**
  * Created by Administrator on 2016/12/24.
