@@ -1,5 +1,8 @@
 package liao.thomas.javadev.basic.thread;
 
+import java.util.Vector;
+import java.util.concurrent.Callable;
+
 /**
  * Created by liaodongming on 2017/1/16.
  */
@@ -26,5 +29,28 @@ public class ThreadTest {
         public void run() {
             //do something
         }
+    }
+
+    public static void differOfCallable() {
+
+//        Vector
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        };
+
+        /**
+         * Callable的 call() 方法可以返回值和抛出异常，而Runnable的run()方法没有这些功能。
+         * Callable可以返回装载有计算结果的Future对象
+         */
+        Callable callable = new Callable() {
+            @Override
+            public Object call() throws Exception {
+                return null;
+            }
+        };
     }
 }
