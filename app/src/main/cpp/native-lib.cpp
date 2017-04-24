@@ -13,7 +13,13 @@ Java_liao_thomas_javadev_MainActivity_stringFromJNI(
     return env->NewStringUTF(hello.c_str());
 }
 
-JNIEXPORT jstring JNICALL
+int8_t test() {
+    int8_t var = 33;
+    return var;
+}
+
+extern "C"
+jstring
 Java_liao_thomas_javadev_ndk_NdkTest_stringFromJNI(JNIEnv* env, jobject thiz) {
 #if defined(__arm__)
     #if defined(__ARM_ARCH_7A__)
@@ -47,5 +53,9 @@ Java_liao_thomas_javadev_ndk_NdkTest_stringFromJNI(JNIEnv* env, jobject thiz) {
 #define ABI "unknown"
 #endif
 
+    char * k = new char[7];
+    for (int i = 0; i < 7; i++) {
+        k[i] = '5';
+    }
     return env->NewStringUTF("Hello from JNI !  Compiled with ABI " ABI ".");
 }

@@ -20,6 +20,10 @@ add_library( # Sets the name of the library.
              # file are automatically included.
              src/main/cpp/native-lib.cpp )
 
+add_library(hello-jnicallback SHARED
+            src/main/cpp/hello-jnicallback.c)
+
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
 # default, you only need to specify the name of the public NDK library
@@ -43,3 +47,7 @@ target_link_libraries( # Specifies the target library.
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
+
+target_link_libraries(hello-jnicallback
+                      android
+                      log)
