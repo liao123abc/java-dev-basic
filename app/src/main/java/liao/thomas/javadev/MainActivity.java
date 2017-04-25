@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         tickView = (TextView) findViewById(R.id.sample_text);
-        NdkTest.test();
+        String reslut = NdkTest.test();
     }
 
 

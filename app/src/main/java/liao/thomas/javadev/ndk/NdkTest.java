@@ -20,10 +20,11 @@ public class NdkTest {
         System.loadLibrary("native-lib");// Load native library at runtime, dll(windows), .so(Unixes)
     }
 
-    public static void test() {
+    public static String test() {
         NdkTest ndkTest = new NdkTest();
         String test = ndkTest.stringFromJNI();
         Log.d(TAG, test);
+        return test;
     }
 
 
