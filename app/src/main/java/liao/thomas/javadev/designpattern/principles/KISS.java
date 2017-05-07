@@ -16,6 +16,7 @@ package liao.thomas.javadev.designpattern.principles;
 public class KISS {
 
     /**
+     *  Good:
      *  uses less language features,
      *   it's clear how it works by just seeing the method
      * @param dayOfWeek
@@ -35,6 +36,7 @@ public class KISS {
     }
 
     /**
+     * Bad:
      *  less statements and less execution branches
      *  more details to think about when refer to weekday1()
      * @param dayOfWeek
