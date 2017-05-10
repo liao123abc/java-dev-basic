@@ -4,8 +4,14 @@ import android.support.annotation.Keep;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import liao.thomas.javadev.basic.xml.SaxParser;
+import liao.thomas.javadev.basic.xml.SheetAttributes;
 import liao.thomas.javadev.ndk.NdkTest;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +46,20 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         StopTicks();
     }
+
+
+    private void testParseXML() {
+        SheetAttributes attributes = null;
+
+        try {
+            InputStream inputStream = getApplicationContext().getAssets().open("test2.xml");
+            SaxParser saxParser = new SaxParser(inputStream);
+            attributes = saxParser.getSheetAttribute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /*
  * A function calling from JNI to update current timer
