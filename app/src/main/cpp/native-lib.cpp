@@ -4,7 +4,6 @@
 
 #define DEBUG_TAG "NDK_AndroidNDK1SampleActivity"
 
-
 char* InsertSort(int a[], int n);
 jstring test222(JNIEnv* env);
 jstring stoJstring(JNIEnv* env, const char* pat);
@@ -165,11 +164,50 @@ char* BubbleSort(int a[], int n) {
     return b;
 }
 
+
+/**
+ * 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置；然后，再从剩余未排序元素中继续寻找最小（大）元素，
+ * 放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。
+ *
+ * 分类 -------------- 内部比较排序
+ * 数据结构 ---------- 数组
+ * 最差时间复杂度 ---- O(n^2)
+ * 最优时间复杂度 ---- O(n^2)
+ * 平均时间复杂度 ---- O(n^2)
+ * 所需辅助空间 ------ O(1)
+ * 稳定性 ------------ 不稳定
+ *
+ * @param a
+ * @param n
+ * @return
+ */
+char* SelectionSort(int a[], int n)
+{
+    int i, j, min;
+    for (i = 0; i <= n -2; i++)
+    { //已排序序列末尾
+        min = i;
+        for (j = i + 1; j <= n -1; j++)
+        {//找出最小值
+            if (a[j] < a[min]) {//找出未排序序列中的末尾， 存放在已排序序列的末尾
+                min = j;
+            }
+        }
+        if (min != i)
+        {
+            exchange(a,min, i);
+        }
+    }
+    char * b = convertArrayInt2Char(a, n);
+    return b;
+}
+
 jstring test222(JNIEnv* env){
     int a[8] = {3,1,5,7,2,4,9,6};
 
     //char* d = InsertSort(a,8);
-    char* d = BubbleSort(a,8);
+    //char* d = BubbleSort(a,8);
+    char* d = SelectionSort(a,8);
     jstring result = stoJstring(env, d);
     return result;
 }
