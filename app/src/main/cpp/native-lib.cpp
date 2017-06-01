@@ -223,3 +223,34 @@ jstring stoJstring(JNIEnv* global_env, const char* pat)
     jstring str = (jstring)global_env->NewObject(strClass, ctorID, bytes, encoding);
     return str;
 }
+
+struct rb_node{
+    int testing;
+};
+
+struct hlist_node {
+    int test;
+};
+
+union hello{
+    int test;
+    double tes;
+};
+
+struct binder_node {
+    int debug_id;
+    union {
+        struct rb_node rb_node;
+        struct hlist_node dead_node;
+    };
+};
+
+void test2() {
+    binder_node binder_node1;
+    hello hello1;
+}
+
+
+
+
+
